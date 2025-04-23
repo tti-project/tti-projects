@@ -10,12 +10,15 @@ import { MatBadgeModule } from '@angular/material/badge';
 
 interface Notification {
   id: string;
-  type: 'task_assigned';
+  type: 'task_assigned' | 'invitation_received';
   data: {
-    taskId: string;
-    taskTitle: string;
-    projectName: string;
-    assignedBy: string;
+    taskId?: string;
+    taskTitle?: string;
+    projectName?: string;
+    assignedBy?: string;
+    invitationId?: string;
+    invitedBy?: string;
+    role?: string;
   };
   read: boolean;
   createdAt: Date;
@@ -77,6 +80,36 @@ export class NotificationComponent implements OnInit, OnDestroy {
           ).onAction().subscribe(() => {
             // Navigate to the task when user clicks "View"
             console.log('Navigate to task:', data.taskId);
+          });
+        }
+      );
+
+      // Subscribe to invitation received notifications
+      this.subscription = this.notificationService.onInvitationReceived().subscribe(
+        (data) => {
+          const newNotification: Notification = {
+            id: Math.random().toString(36).substr(2, 9),
+            type: 'invitation_received',
+            data,
+            read: false,
+            createdAt: new Date()
+          };
+
+          this.notifications.unshift(newNotification);
+          this.unreadCount++;
+
+          // Show snackbar for new notifications
+          this.snackBar.open(
+            `You have been invited to join project "${data.projectName}" by ${data.invitedBy}`,
+            'View',
+            {
+              duration: 5000,
+              horizontalPosition: 'right',
+              verticalPosition: 'top'
+            }
+          ).onAction().subscribe(() => {
+            // Navigate to the task when user clicks "View"
+            console.log('Navigate to task:', data.invitationId);
           });
         }
       );

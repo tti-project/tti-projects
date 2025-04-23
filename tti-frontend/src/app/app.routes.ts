@@ -23,6 +23,11 @@ export const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'invitations',
+    loadComponent: () => import('./features/invitations/components/invitation-list/invitation-list.component').then(m => m.InvitationListComponent),
+    canActivate: [AuthGuard]
+  },
+  {
     path: '**',
     redirectTo: 'auth'
   }

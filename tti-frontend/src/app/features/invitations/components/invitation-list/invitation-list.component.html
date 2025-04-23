@@ -1,0 +1,28 @@
+<div class="invitation-list">
+  <h2>Pending Invitations</h2>
+
+  <div *ngIf="loading" class="loading">
+    <mat-spinner diameter="40"></mat-spinner>
+  </div>
+
+  <div *ngIf="!loading && invitations.length === 0" class="no-invitations">
+    <p>No pending invitations</p>
+  </div>
+
+  <mat-card *ngFor="let invitation of invitations" class="invitation-card">
+    <mat-card-content>
+      <h3>{{ invitation.workspaceName }}</h3>
+      <p><strong>Invited by:</strong> {{ invitation.invitedBy.name }}</p>
+      <p><strong>Role:</strong> {{ invitation.role }}</p>
+      <p><strong>Status:</strong> {{ invitation.status }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="acceptInvitation(invitation)" [disabled]="loading">
+        Accept
+      </button>
+      <button mat-raised-button color="warn" (click)="rejectInvitation(invitation)" [disabled]="loading">
+        Reject
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -51,7 +51,9 @@ export class AppComponent {
           id: response.user.id,
           email: response.user.email,
           name: response.user.name || '', // Assuming username can be used as name
-          role: response.user.role as 'admin' | 'member' | 'guest'
+          role: response.user.role as 'admin' | 'member' | 'guest',
+          createdAt: new Date(),
+          updatedAt: new Date()
         };
       } else {
         this.user = null;
@@ -67,6 +69,7 @@ export class AppComponent {
     this.router.navigate([route]);
     this.opened = false;
   }
+
 
   logout() {
     this.authService.logout();

@@ -2,13 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { io, Socket } from 'socket.io-client';
 import { environment } from '../../../environments/environment';
-
-interface TaskAssignmentData {
-  taskId: string;
-  taskTitle: string;
-  projectName: string;
-  assignedBy: string;
-}
+import { TaskAssignmentData, InvitationReceivedData } from '../models/notification.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +26,14 @@ export class NotificationService {
   onTaskAssigned(): Observable<TaskAssignmentData> {
     return new Observable(observer => {
       this.socket.on('taskAssigned', (data: TaskAssignmentData) => {
+        observer.next(data);
+      });
+    });
+  }
+
+  onInvitationReceived(): Observable<InvitationReceivedData> {
+    return new Observable(observer => {
+      this.socket.on('invitationReceived', (data: InvitationReceivedData) => {
         observer.next(data);
       });
     });

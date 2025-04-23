@@ -33,7 +33,22 @@ const loginValidation = [
   body("password").notEmpty().withMessage("Password is required"),
 ];
 
+const validateInvitation = (req, res, next) => {
+  const { email, workspaceId, role } = req.body;
+
+  if (!email || !workspaceId || !role) {
+    return res.status(400).json({ message: "Email, workspace ID, and role are required" });
+  }
+
+  if (!["admin", "member"].includes(role)) {
+    return res.status(400).json({ message: "Invalid role. Must be either admin or member" });
+  }
+
+  next();
+};
+
 module.exports = {
   registerValidation,
   loginValidation,
+  validateInvitation,
 };

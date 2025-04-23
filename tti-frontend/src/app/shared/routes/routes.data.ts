@@ -10,11 +10,6 @@ export const routesData = [
     path: '/projects',
     icon: 'folder',
     title: 'Projects'
-  },
-  {
-    path: '/tasks',
-    icon: 'task',
-    title: 'Tasks'
   }
 ]
 

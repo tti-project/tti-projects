@@ -71,16 +71,27 @@ export class AddWorkspaceDialogComponent implements OnInit {
 
   onSubmit(): void {
     if (this.form.valid) {
-
-      this.workspaceService[this.data.id ? 'updateWorkspace' : 'createWorkspace'](this.form.value).subscribe((workspace) => {
-        this.dialogRef.close(workspace);
-        this._snackBar.open(this.data.id ? 'Workspace updated successfully' : 'Workspace created successfully', 'Close', {
-          duration: 3000,
-          panelClass: ['success-snackbar'],
-          horizontalPosition: 'end',
-          verticalPosition: 'top',
+      if (this.data.id) {
+        this.workspaceService.updateWorkspace(this.data.id, this.form.value).subscribe((workspace) => {
+          this.dialogRef.close(workspace);
+          this._snackBar.open('Workspace updated successfully', 'Close', {
+            duration: 3000,
+            panelClass: ['success-snackbar'],
+            horizontalPosition: 'end',
+            verticalPosition: 'top',
+          });
         });
-      });
+      } else {
+        this.workspaceService.createWorkspace(this.form.value).subscribe((workspace) => {
+          this.dialogRef.close(workspace);
+          this._snackBar.open('Workspace created successfully', 'Close', {
+            duration: 3000,
+            panelClass: ['success-snackbar'],
+            horizontalPosition: 'end',
+            verticalPosition: 'top',
+          });
+        });
+      }
     }
   }
 

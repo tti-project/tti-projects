@@ -9,7 +9,7 @@ const workspaceRoutes = require("./routes/workspace.routes");
 const projectRoutes = require("./routes/project.routes");
 const taskRoutes = require("./routes/task.routes");
 const userRoutes = require("./routes/user.routes");
-const { auth } = require("./middleware/auth.middleware");
+const invitationRoutes = require("./routes/invitation.routes");
 
 const app = express();
 const server = http.createServer(app);
@@ -50,6 +50,7 @@ app.use("/api/workspaces", workspaceRoutes);
 app.use("/api/projects", projectRoutes);
 app.use("/api/tasks", taskRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/invitations", invitationRoutes);
 
 // Database connection
 mongoose

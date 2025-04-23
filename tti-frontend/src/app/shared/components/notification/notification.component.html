@@ -18,6 +18,7 @@
 
     <div *ngFor="let notification of notifications" class="notification-item" [class.unread]="!notification.read"
       (click)="markAsRead(notification)">
+      @if (notification.type === 'task_assigned') {
       <div class="notification-content">
         <div class="notification-title">
           <mat-icon>assignment</mat-icon>
@@ -31,6 +32,18 @@
           By {{notification.data.assignedBy}} • {{notification.createdAt | date:'short'}}
         </div>
       </div>
+      }
+      @if (notification.type === 'invitation_received') {
+      <div class="notification-content">
+        <div class="notification-title">
+          <mat-icon>assignment</mat-icon>
+          <span>Invitation Received</span>
+        </div>
+        <div class="notification-message">
+          You have been invited to join project "{{notification.data.projectName}}" by {{notification.data.invitedBy}}
+        </div>
+      </div>
+      }
     </div>
   </div>
 </mat-menu>

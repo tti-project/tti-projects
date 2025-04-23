@@ -32,10 +32,16 @@
           {{user.name}}
         </button>
         <mat-menu #userMenu="matMenu">
+          <button mat-menu-item (click)="navigateTo('/invitations')">
+            <mat-icon>mail</mat-icon>
+            <span>Invitations</span>
+          </button>
+
           <button mat-menu-item (click)="logout()">
             <mat-icon>exit_to_app</mat-icon>
             <span>Logout</span>
           </button>
+
         </mat-menu>
       </div>
       }
