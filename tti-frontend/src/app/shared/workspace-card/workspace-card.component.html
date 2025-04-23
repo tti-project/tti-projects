@@ -1,0 +1,13 @@
+<mat-card appearance="outlined" class="mb-3">
+  <mat-card-header>
+    <mat-card-title>{{ workspace.name }}</mat-card-title>
+    <mat-card-subtitle class="text-muted">{{ workspace.description }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions align="end" class="d-flex justify-content-end align-items-center gap-2">
+    <button mat-raised-button (click)="goToWorkspace()">Go to Projects</button>
+    @if (currentUser.role === 'admin' || currentUser.id === workspace.owner.id) {
+    <button mat-button color="primary" (click)="updateWorkspace($event)">Update</button>
+    <button mat-button class="delete-button" (click)="openDeleteDialog()">Delete</button>
+    }
+  </mat-card-actions>
+</mat-card>

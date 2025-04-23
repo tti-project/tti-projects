@@ -1,0 +1,12 @@
+/* .delete-button {
+  color: #b43229;
+}
+
+ */
+ .delete-button {
+  color: #b43229;
+}
+
+.delete-button:hover {
+  color: #8b0000;
+}

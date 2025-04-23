@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-success {
+  background-color: green;
+  color: #fff;
+}
+
+.mat-success:hover {
+  background-color: #0056b3;
+}
+
+.success-snackbar {
+  background-color: green;
+  color: #fff;
+}
+
+.error-snackbar {
+  background-color: red;
+  color: #fff;
+}
+
+.warning-snackbar {
+  background-color: yellow;
+  color: #fff;
+}
+
+.red {
+  color: red;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 100px;
+}
+
+.delete-button {
+  color: #b43229;
+}
+
+.delete-button:hover {
+  color: #8b0000;
+}
+
+

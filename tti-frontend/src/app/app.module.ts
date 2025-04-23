@@ -1,0 +1,27 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+
+import { routes } from './app.routes';
+import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
+import { NotificationComponent } from './shared/components/notification/notification.component';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes),
+    CoreModule,
+    SharedModule,
+    AppComponent
+  ],
+  declarations: [
+    NotificationComponent
+  ],
+})
+export class AppModule { }

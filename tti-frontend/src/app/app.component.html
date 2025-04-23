@@ -1,0 +1,47 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [mode]="'side'" [opened]="opened">
+    <mat-nav-list>
+      @for (route of routesData; track route.path) {
+      <a mat-list-item [routerLink]="route.path" (click)="navigateTo(route.path)"
+        [routerLinkActive]="['mat-mdc-list-item-active']">
+        <mat-icon matListItemIcon>{{route.icon}}</mat-icon>
+        <span matListItemTitle>{{route.title}}</span>
+      </a>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="d-flex justify-content-between">
+
+      <div class="d-flex align-items-center">
+
+        <button mat-icon-button (click)="toggleSidenav()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>{{title}}</span>
+      </div>
+
+      @if (user) {
+      <div class="d-flex align-items-center">
+        <div>
+          <app-notification></app-notification>
+        </div>
+
+        <button mat-button [matMenuTriggerFor]="userMenu">
+          <mat-icon>account_circle</mat-icon>
+          {{user.name}}
+        </button>
+        <mat-menu #userMenu="matMenu">
+          <button mat-menu-item (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+      </div>
+      }
+    </mat-toolbar>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

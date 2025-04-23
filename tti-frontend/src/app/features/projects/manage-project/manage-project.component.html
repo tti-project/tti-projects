@@ -1,0 +1,116 @@
+<div>
+
+  <div class="project-header">
+    <div class="d-flex justify-content-between align-items-center">
+      <h1>{{project?.name}}</h1>
+      <button mat-raised-button color="primary" (click)="openTaskForm()">Add Task</button>
+    </div>
+    <p class="text-muted">{{project?.description}}</p>
+  </div>
+  <div cdkDropListGroup class="row">
+    <div class="example-container col-md-4">
+      <h2>To do</h2>
+
+      <div cdkDropList id="todoList" [cdkDropListData]="todo" class="example-list" (cdkDropListDropped)="drop($event)">
+        @for (task of todo; track task.id) {
+        <div class="example-box" cdkDrag>
+          <div class="task-content">
+            <div class="task-title">{{task.title}}</div>
+            @if (task.description) {
+            <div class="task-description">{{task.description}}</div>
+            }
+            @if (task.assignee) {
+            <div class="task-assignee">Assigned to: {{task.assignee.name}}</div>
+            }
+          </div>
+          <button mat-icon-button [matMenuTriggerFor]="taskMenu" (click)="$event.stopPropagation()">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #taskMenu="matMenu">
+            <button mat-menu-item (click)="openTaskForm(task)">
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button mat-menu-item (click)="deleteTask(task)">
+              <mat-icon>delete</mat-icon>
+              <span>Delete</span>
+            </button>
+          </mat-menu>
+        </div>
+        }
+      </div>
+
+    </div>
+
+    <div class="example-container col-md-4">
+      <h2>Doing</h2>
+
+
+      <div cdkDropList id="doingList" [cdkDropListData]="doing" class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        @for (task of doing; track task.id) {
+        <div class="example-box" cdkDrag>
+          <div class="task-content">
+            <div class="task-title">{{task.title}}</div>
+            @if (task.description) {
+            <div class="task-description">{{task.description}}</div>
+            }
+            @if (task.assignee) {
+            <div class="task-assignee">Assigned to: {{task.assignee.name}}</div>
+            }
+          </div>
+          <button mat-icon-button [matMenuTriggerFor]="taskMenu" (click)="$event.stopPropagation()">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #taskMenu="matMenu">
+            <button mat-menu-item (click)="openTaskForm(task)">
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button mat-menu-item (click)="deleteTask(task)">
+              <mat-icon>delete</mat-icon>
+              <span>Delete</span>
+            </button>
+          </mat-menu>
+        </div>
+        }
+      </div>
+
+    </div>
+
+    <div class="example-container col-md-4">
+      <h2>Done</h2>
+
+
+      <div cdkDropList id="doneList" [cdkDropListData]="done" class="example-list" (cdkDropListDropped)="drop($event)">
+        @for (task of done; track task.id) {
+        <div class="example-box" cdkDrag>
+          <div class="task-content">
+            <div class="task-title">{{task.title}}</div>
+            @if (task.description) {
+            <div class="task-description">{{task.description}}</div>
+            }
+            @if (task.assignee) {
+            <div class="task-assignee">Assigned to: {{task.assignee.name}}</div>
+            }
+          </div>
+          <button mat-icon-button [matMenuTriggerFor]="taskMenu" (click)="$event.stopPropagation()">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #taskMenu="matMenu">
+            <button mat-menu-item (click)="openTaskForm(task)">
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button mat-menu-item (click)="deleteTask(task)">
+              <mat-icon>delete</mat-icon>
+              <span>Delete</span>
+            </button>
+          </mat-menu>
+        </div>
+        }
+      </div>
+
+    </div>
+  </div>
+</div>
