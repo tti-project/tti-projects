@@ -20,6 +20,9 @@
       </div>
 
       <div class="d-flex gap-2 align-items-center">
+        <button mat-icon-button (click)="toggleTheme()">
+          <mat-icon>{{ themeService.isDarkMode() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+        </button>
         @if (user) {
         <div>
           <app-notification></app-notification>
@@ -42,9 +45,7 @@
         </div>
         }
 
-        <button mat-icon-button (click)="toggleTheme()">
-          <mat-icon>{{ themeService.isDarkMode() ? 'light_mode' : 'dark_mode' }}</mat-icon>
-        </button>
+
       </div>
     </mat-toolbar>
     <div class="content">

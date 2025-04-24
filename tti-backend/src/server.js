@@ -11,6 +11,7 @@ const taskRoutes = require("./routes/task.routes");
 const userRoutes = require("./routes/user.routes");
 const invitationRoutes = require("./routes/invitation.routes");
 const statisticsRoutes = require("./routes/statistics.routes");
+const rateLimit = require("express-rate-limit");
 
 const app = express();
 const server = http.createServer(app);
@@ -37,6 +38,14 @@ io.on("connection", (socket) => {
   });
 });
 
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
+  standardHeaders: "draft-8", // draft-6: `RateLimit-*` headers; draft-7 & draft-8: combined `RateLimit` header
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
+  // store: ... , // Redis, Memcached, etc. See below.
+});
+
 // Make io accessible to routes
 app.set("io", io);
 
@@ -54,6 +63,8 @@ app.use("/api/users", userRoutes);
 app.use("/api/invitations", invitationRoutes);
 app.use("/api/statistics", statisticsRoutes);
 
+// Rate limiting middleware
+app.use(limiter);
 // Database connection
 mongoose
   .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/tti")

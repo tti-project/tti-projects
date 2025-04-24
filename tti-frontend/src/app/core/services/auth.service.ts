@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable, throwError, tap, catchError } from 'rxjs';
 import { User } from '../models/user.model';
 import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +16,7 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
   ) {
     const storedUser = localStorage.getItem('currentUser');
     this.currentUserSubject = new BehaviorSubject<{ user: User; token: string } | null>(
@@ -125,10 +125,14 @@ export class AuthService {
 
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'An error occurred';
+    // }
     if (error.error instanceof ErrorEvent) {
       // Client-side error
       errorMessage = error.error.message;
+
+
     } else {
+
       // Server-side error
       errorMessage = error.error.message || `Error Code: ${error.status}\nMessage: ${error.message}`;
     }

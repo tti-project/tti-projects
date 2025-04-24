@@ -8,10 +8,11 @@ const {
 } = require("../middleware/refreshTokenAttempts.middleware");
 const { validationResult } = require("express-validator");
 const { loginValidation, registerValidation } = require("../middleware/validation.middleware");
+const { loginLimiter, registerLimiter } = require("../middleware/rateLimit.middleware");
 const User = require("../models/user.model");
 
 // Register
-router.post("/register", registerValidation, async (req, res) => {
+router.post("/register", registerLimiter, registerValidation, async (req, res) => {
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -57,7 +58,7 @@ router.post("/register", registerValidation, async (req, res) => {
 });
 
 // Login
-router.post("/login", loginValidation, async (req, res) => {
+router.post("/login", loginLimiter, loginValidation, async (req, res) => {
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
