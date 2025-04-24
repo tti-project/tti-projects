@@ -10,6 +10,7 @@ const projectRoutes = require("./routes/project.routes");
 const taskRoutes = require("./routes/task.routes");
 const userRoutes = require("./routes/user.routes");
 const invitationRoutes = require("./routes/invitation.routes");
+const statisticsRoutes = require("./routes/statistics.routes");
 
 const app = express();
 const server = http.createServer(app);
@@ -51,6 +52,7 @@ app.use("/api/projects", projectRoutes);
 app.use("/api/tasks", taskRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/invitations", invitationRoutes);
+app.use("/api/statistics", statisticsRoutes);
 
 // Database connection
 mongoose

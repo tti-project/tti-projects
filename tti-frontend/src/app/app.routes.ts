@@ -28,6 +28,11 @@ export const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'dashboard',
+    loadComponent: () => import('./features/dashboard/dashboard.component').then(m => m.DashboardComponent),
+    canActivate: [AuthGuard]
+  },
+  {
     path: '**',
     redirectTo: 'auth'
   }

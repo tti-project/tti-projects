@@ -1,0 +1,30 @@
+<div>
+
+  @if(loading) {
+  <div class="d-flex justify-content-center align-items-center mt-5">
+    <mat-spinner></mat-spinner>
+  </div>
+  } @else {
+  <div class="row">
+
+    <div class="col-md-6">
+      <h3>Tasks Created Over Time</h3>
+      <canvas baseChart [data]="barChartData" [options]="barChartOptions" [plugins]="barChartPlugins"
+        [legend]="barChartLegend" [type]="'bar'">
+      </canvas>
+    </div>
+    <div class="col-md-6">
+      <h3>Project Member Distribution</h3>
+      <canvas baseChart [data]="projectMemberStatsData" [options]="barChartOptions" [plugins]="barChartPlugins"
+        [legend]="barChartLegend" [type]="'bar'">
+      </canvas>
+    </div>
+    <div class="col-md-6">
+      <h3>User Activity</h3>
+      <canvas baseChart [data]="userActivityStatsData" [options]="barChartOptions" [plugins]="barChartPlugins"
+        [legend]="barChartLegend" [type]="'bar'">
+      </canvas>
+    </div>
+  </div>
+  }
+</div>
