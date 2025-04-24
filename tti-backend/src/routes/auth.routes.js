@@ -124,12 +124,10 @@ router.post("/logoutAll", auth, async (req, res) => {
 // Refresh token
 router.post("/refresh", refreshTokenAttemptsMiddleware, async (req, res) => {
   try {
-    const { refreshToken: oldRefreshToken } = req.body;
+    const { user, oldRefreshToken } = req.body;
     if (!oldRefreshToken) {
       return res.status(400).send({ error: "Refresh token is required" });
     }
-
-    const user = req.user;
 
     // Verify the old refresh token
     const isValid = await user.verifyRefreshToken(oldRefreshToken);

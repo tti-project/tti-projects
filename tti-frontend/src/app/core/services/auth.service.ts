@@ -66,7 +66,7 @@ export class AuthService {
       return throwError(() => new Error('No refresh token available'));
     }
 
-    return this.http.post<{ user: User; token: string; refreshToken: string; accessToken: string }>(`${this.apiUrl}/refresh`, { user: this.currentUserValue?.user, refreshToken })
+    return this.http.post<{ user: User; token: string; refreshToken: string; accessToken: string }>(`${this.apiUrl}/refresh`, { user: this.currentUserValue?.user, oldRefreshToken: refreshToken, refreshToken })
       .pipe(
         tap(response => {
           this.setSession(response);
