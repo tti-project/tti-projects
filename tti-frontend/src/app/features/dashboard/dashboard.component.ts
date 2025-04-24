@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -21,11 +21,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatProgressSpinnerModule
   ],
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit, AfterViewInit {
   public barChartLegend = true;
   public barChartPlugins = [];
 
   loading = true;
+  projectMemberLoading = true;
+  userActivityLoading = true;
 
   public barChartData: ChartConfiguration<'bar'>['data'] = {
     labels: [],
@@ -55,6 +57,12 @@ export class DashboardComponent {
   constructor(private statisticsService: StatisticsService) {}
 
   ngOnInit() {
+    // this.getTasksOverTime();
+    // this.getProjectMemberStats();
+    // this.getUserActivityStats();
+  }
+
+  ngAfterViewInit() {
     this.getTasksOverTime();
     this.getProjectMemberStats();
     this.getUserActivityStats();
@@ -71,24 +79,24 @@ export class DashboardComponent {
   }
 
   getProjectMemberStats() {
-    this.loading = true;
+    this.projectMemberLoading = true;
     this.statisticsService.getProjectMemberStats().subscribe((data) => {
       console.log(data);
       this.projectMemberStatsData.labels = data.map((item) => item.name);
       this.projectMemberStatsData.datasets[0].data = data.map((item) => item.memberCount);
-      this.loading = false;
+      this.projectMemberLoading = false;
     });
   }
 
   getUserActivityStats() {
-    this.loading = true;
+    this.userActivityLoading = true;
     this.statisticsService.getUserActivityStats().subscribe((data) => {
       console.log(data);
       this.userActivityStatsData.labels = data.map((item) => item.name);
       this.userActivityStatsData.datasets[0].data = data.map((item) => item.taskCount);
       this.userActivityStatsData.datasets[1].data = data.map((item) => item.completedTasks);
       this.userActivityStatsData.datasets[2].data = data.map((item) => item.completionRate);
-      this.loading = false;
+      this.userActivityLoading = false;
     });
   }
 }

@@ -1,6 +1,6 @@
 <div>
 
-  @if(loading) {
+  @if(loading || projectMemberLoading || userActivityLoading) {
   <div class="d-flex justify-content-center align-items-center mt-5">
     <mat-spinner></mat-spinner>
   </div>
