@@ -1,7 +1,7 @@
 <div>
   <div class="d-flex justify-content-between w-100 align-items-center mb-3">
-    <h1>Workspaces</h1>
-    <button mat-raised-button color="primary" (click)="openDialog()">Create Workspace</button>
+    <h1>{{ 'APP.WORKSPACE.TITLE' | translate }}</h1>
+    <button mat-raised-button color="primary" (click)="openDialog()">{{ 'APP.WORKSPACE.CREATE' | translate }}</button>
   </div>
 
 
@@ -19,13 +19,13 @@
     </div>
     } @else {
     <div class="d-flex justify-content-center align-items-center mt-4">
-      <p class="text-muted">No workspaces found</p>
+      <p class="text-muted">{{ 'APP.WORKSPACE.NO_WORKSPACES' | translate }}</p>
     </div>
     }
   </div>
   } @else {
   <div class="d-flex justify-content-center align-items-center mt-4">
-    <p class="text-muted">No workspaces found</p>
+    <p class="text-muted">{{ 'APP.WORKSPACE.NO_WORKSPACES' | translate }}</p>
   </div>
   }
   }

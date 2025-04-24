@@ -13,6 +13,7 @@ import { AuthService } from './core/services/auth.service';
 import { CommonModule } from '@angular/common';
 import { NotificationComponent } from './shared/components/notification/notification.component';
 import { ThemeService } from './core/services/theme.service';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -30,19 +31,22 @@ import { ThemeService } from './core/services/theme.service';
     MatButtonModule,
     MatListModule,
     MatMenuModule,
-    NotificationComponent
-  ],
+    NotificationComponent,
+    TranslateModule
+  ]
 })
 export class AppComponent {
   title = 'Task Tracking Interface';
   routesData = routesData;
   user: User | null = null;
   opened = true;
+  currentLang = 'en';
 
   constructor(
     private authService: AuthService,
     private router: Router,
-    public themeService: ThemeService
+    public themeService: ThemeService,
+    private translate: TranslateService
   ) {
     this.user = this.authService.currentUserValue?.user || null;
     this.authService.currentUser$.subscribe((response) => {
@@ -59,6 +63,8 @@ export class AppComponent {
         this.user = null;
       }
     });
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
   }
 
   toggleSidenav() {
@@ -77,5 +83,10 @@ export class AppComponent {
 
   toggleTheme(): void {
     this.themeService.toggleTheme();
+  }
+
+  switchLanguage(lang: string) {
+    this.currentLang = lang;
+    this.translate.use(lang);
   }
 }

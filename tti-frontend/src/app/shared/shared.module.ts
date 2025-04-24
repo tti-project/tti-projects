@@ -25,6 +25,8 @@ import { WorkspaceCardComponent } from './workspace-card/workspace-card.componen
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { CustomDialogComponent } from './custom-dialog/custom-dialog.component';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+
 export const materialModules = [
   MatButtonModule,
   MatCardModule,
@@ -59,12 +61,14 @@ export const materialModules = [
   imports: [
     CommonModule,
     RouterModule,
+    TranslateModule,
     ...materialModules
   ],
   exports: [
     ...materialModules,
     WorkspaceCardComponent,
-    ProjectCardComponent
+    ProjectCardComponent,
+    TranslateModule
   ],
   // schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

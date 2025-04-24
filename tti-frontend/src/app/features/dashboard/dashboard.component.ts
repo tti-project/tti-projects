@@ -7,6 +7,8 @@ import { BaseChartDirective } from 'ng2-charts';
 import { ChartConfiguration } from 'chart.js';
 import { StatisticsService } from '../../core/services/statistics.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { TranslateModule } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -18,7 +20,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatButtonModule,
     MatIconModule,
     BaseChartDirective,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    TranslateModule
   ],
 })
 export class DashboardComponent implements OnInit, AfterViewInit {

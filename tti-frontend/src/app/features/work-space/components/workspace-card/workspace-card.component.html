@@ -1,0 +1,15 @@
+<mat-card class="workspace-card">
+    <mat-card-header>
+        <mat-card-title>{{ workspace.name }}</mat-card-title>
+        <mat-card-subtitle>{{ 'APP.WORKSPACE.FORM.DESCRIPTION' | translate }}: {{ workspace.description
+            }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>{{ 'APP.WORKSPACE.FORM.MEMBERS' | translate }}: {{ workspace.members?.length || 0 }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button color="primary" (click)="onViewWorkspace()">
+            {{ 'APP.MENU.WORKSPACES' | translate }}
+        </button>
+    </mat-card-actions>
+</mat-card>

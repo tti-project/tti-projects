@@ -1,0 +1,29 @@
+{
+  "APP": {
+    "TITLE": "TTI",
+    "MENU": {
+      "HOME": "Home",
+      "DASHBOARD": "Dashboard",
+      "PROFILE": "Profile",
+      "SETTINGS": "Settings"
+    },
+    "AUTH": {
+      "LOGIN": "Login",
+      "REGISTER": "Register",
+      "LOGOUT": "Logout",
+      "EMAIL": "Email",
+      "PASSWORD": "Password",
+      "NAME": "Name",
+      "CONFIRM_PASSWORD": "Confirm Password"
+    },
+    "USER": {
+      "PROFILE": "Profile",
+      "INVITATIONS": "Invitations",
+      "SETTINGS": "Settings"
+    },
+    "THEME": {
+      "LIGHT": "Light Mode",
+      "DARK": "Dark Mode"
+    }
+  }
+}

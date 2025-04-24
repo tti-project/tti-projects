@@ -1,0 +1,131 @@
+{
+  "APP": {
+    "TITLE": "TTI",
+    "MENU": {
+      "HOME": "Accueil",
+      "DASHBOARD": "Tableau de bord",
+      "WORKSPACES": "Espaces de travail",
+      "PROJECTS": "Projets",
+      "PROFILE": "Profil",
+      "SETTINGS": "Paramètres"
+    },
+    "AUTH": {
+      "LOGIN": {
+        "TITLE": "Connexion",
+        "EMAIL": "Email",
+        "PASSWORD": "Mot de passe",
+        "SUBMIT": "Se connecter",
+        "LOADING": "Connexion en cours...",
+        "NO_ACCOUNT": "Vous n'avez pas de compte ?",
+        "REGISTER": "S'inscrire",
+        "ERRORS": {
+          "REQUIRED_EMAIL": "L'email est requis",
+          "INVALID_EMAIL": "Veuillez entrer un email valide",
+          "REQUIRED_PASSWORD": "Le mot de passe est requis"
+        }
+      },
+      "REGISTER": {
+        "TITLE": "Inscription",
+        "NAME": "Nom",
+        "EMAIL": "Email",
+        "PASSWORD": "Mot de passe",
+        "CONFIRM_PASSWORD": "Confirmer le mot de passe",
+        "SUBMIT": "S'inscrire",
+        "HAS_ACCOUNT": "Vous avez déjà un compte ?",
+        "LOGIN": "Se connecter",
+        "ERRORS": {
+          "REQUIRED_NAME": "Le nom est requis",
+          "REQUIRED_EMAIL": "L'email est requis",
+          "INVALID_EMAIL": "Veuillez entrer un email valide",
+          "REQUIRED_PASSWORD": "Le mot de passe est requis",
+          "MIN_LENGTH": "Le mot de passe doit contenir au moins 6 caractères",
+          "REQUIRED_CONFIRM": "Veuillez confirmer votre mot de passe",
+          "MISMATCH": "Les mots de passe ne correspondent pas"
+        }
+      },
+      "LOGOUT": "Déconnexion",
+      "EMAIL": "Email",
+      "PASSWORD": "Mot de passe",
+      "NAME": "Nom",
+      "CONFIRM_PASSWORD": "Confirmer le mot de passe"
+    },
+    "DASHBOARD": {
+      "TITLE": "Tableau de bord",
+      "LOADING": "Chargement...",
+      "CHARTS": {
+        "TASKS_CREATED": "Tâches créées dans le temps",
+        "PROJECT_MEMBERS": "Distribution des membres du projet",
+        "USER_ACTIVITY": "Activité des utilisateurs"
+      }
+    },
+    "PROJECTS": {
+      "TITLE": "Projets",
+      "CREATE": "Créer un projet",
+      "NO_PROJECTS": "Aucun projet trouvé",
+      "LOADING": "Chargement...",
+      "MANAGE": {
+        "TITLE": "Gérer le projet",
+        "TASKS": "Tâches",
+        "MEMBERS": "Membres",
+        "SETTINGS": "Paramètres",
+        "STATUS": {
+          "TODO": "À faire",
+          "DOING": "En cours",
+          "DONE": "Terminé"
+        },
+        "ACTIONS": {
+          "EDIT": "Modifier",
+          "DELETE": "Supprimer"
+        }
+      },
+      "FORM": {
+        "WORKSPACE": "Espace de travail",
+        "NAME": "Nom",
+        "DESCRIPTION": "Description"
+      }
+    },
+    "TASKS": {
+      "TITLE": "Tâches",
+      "FORM": {
+        "TITLE": "Titre",
+        "DESCRIPTION": "Description",
+        "ASSIGNEE": "Assigné à",
+        "DUE_DATE": "Date d'échéance",
+        "PRIORITY": "Priorité",
+        "STATUS": "Statut"
+      }
+    },
+    "WORKSPACE": {
+      "TITLE": "Espaces de travail",
+      "CREATE": "Créer un espace",
+      "NO_WORKSPACES": "Aucun espace trouvé",
+      "LOADING": "Chargement...",
+      "FORM": {
+        "NAME": "Nom",
+        "DESCRIPTION": "Description",
+        "MEMBERS": "Membres"
+      }
+    },
+    "NOTIFICATIONS": {
+      "TITLE": "Notifications",
+      "TASK_ASSIGNED": "Tâche assignée",
+      "INVITATION_RECEIVED": "Invitation reçue"
+    },
+    "INVITATIONS": {
+      "TITLE": "Invitations en attente",
+      "NO_INVITATIONS": "Aucune invitation en attente",
+      "INVITED_BY": "Invité par",
+      "ROLE": "Rôle",
+      "STATUS": "Statut"
+    },
+    "USER": {
+      "PROFILE": "Profil",
+      "INVITATIONS": "Invitations",
+      "SETTINGS": "Paramètres"
+    },
+    "THEME": {
+      "LIGHT": "Mode clair",
+      "DARK": "Mode sombre"
+    }
+  }
+}

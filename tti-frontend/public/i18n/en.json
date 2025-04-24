@@ -1,0 +1,131 @@
+{
+  "APP": {
+    "TITLE": "TTI",
+    "MENU": {
+      "HOME": "Home",
+      "DASHBOARD": "Dashboard",
+      "WORKSPACES": "Workspaces",
+      "PROJECTS": "Projects",
+      "PROFILE": "Profile",
+      "SETTINGS": "Settings"
+    },
+    "AUTH": {
+      "LOGIN": {
+        "TITLE": "Login",
+        "EMAIL": "Email",
+        "PASSWORD": "Password",
+        "SUBMIT": "Login",
+        "LOADING": "Logging in...",
+        "NO_ACCOUNT": "Don't have an account?",
+        "REGISTER": "Register",
+        "ERRORS": {
+          "REQUIRED_EMAIL": "Email is required",
+          "INVALID_EMAIL": "Please enter a valid email",
+          "REQUIRED_PASSWORD": "Password is required"
+        }
+      },
+      "REGISTER": {
+        "TITLE": "Register",
+        "NAME": "Name",
+        "EMAIL": "Email",
+        "PASSWORD": "Password",
+        "CONFIRM_PASSWORD": "Confirm Password",
+        "SUBMIT": "Register",
+        "HAS_ACCOUNT": "Already have an account?",
+        "LOGIN": "Login",
+        "ERRORS": {
+          "REQUIRED_NAME": "Name is required",
+          "REQUIRED_EMAIL": "Email is required",
+          "INVALID_EMAIL": "Please enter a valid email",
+          "REQUIRED_PASSWORD": "Password is required",
+          "MIN_LENGTH": "Password must be at least 6 characters",
+          "REQUIRED_CONFIRM": "Please confirm your password",
+          "MISMATCH": "Passwords do not match"
+        }
+      },
+      "LOGOUT": "Logout",
+      "EMAIL": "Email",
+      "PASSWORD": "Password",
+      "NAME": "Name",
+      "CONFIRM_PASSWORD": "Confirm Password"
+    },
+    "DASHBOARD": {
+      "TITLE": "Dashboard",
+      "LOADING": "Loading...",
+      "CHARTS": {
+        "TASKS_CREATED": "Tasks Created Over Time",
+        "PROJECT_MEMBERS": "Project Member Distribution",
+        "USER_ACTIVITY": "User Activity"
+      }
+    },
+    "PROJECTS": {
+      "TITLE": "Projects",
+      "CREATE": "Create Project",
+      "NO_PROJECTS": "No projects found",
+      "LOADING": "Loading...",
+      "MANAGE": {
+        "TITLE": "Manage Project",
+        "TASKS": "Tasks",
+        "MEMBERS": "Members",
+        "SETTINGS": "Settings",
+        "STATUS": {
+          "TODO": "To do",
+          "DOING": "Doing",
+          "DONE": "Done"
+        },
+        "ACTIONS": {
+          "EDIT": "Edit",
+          "DELETE": "Delete"
+        }
+      },
+      "FORM": {
+        "WORKSPACE": "Workspace",
+        "NAME": "Name",
+        "DESCRIPTION": "Description"
+      }
+    },
+    "TASKS": {
+      "TITLE": "Tasks",
+      "FORM": {
+        "TITLE": "Title",
+        "DESCRIPTION": "Description",
+        "ASSIGNEE": "Assignee",
+        "DUE_DATE": "Due Date",
+        "PRIORITY": "Priority",
+        "STATUS": "Status"
+      }
+    },
+    "WORKSPACE": {
+      "TITLE": "Workspaces",
+      "CREATE": "Create Workspace",
+      "NO_WORKSPACES": "No workspaces found",
+      "LOADING": "Loading...",
+      "FORM": {
+        "NAME": "Name",
+        "DESCRIPTION": "Description",
+        "MEMBERS": "Members"
+      }
+    },
+    "NOTIFICATIONS": {
+      "TITLE": "Notifications",
+      "TASK_ASSIGNED": "Task Assigned",
+      "INVITATION_RECEIVED": "Invitation Received"
+    },
+    "INVITATIONS": {
+      "TITLE": "Pending Invitations",
+      "NO_INVITATIONS": "No pending invitations",
+      "INVITED_BY": "Invited by",
+      "ROLE": "Role",
+      "STATUS": "Status"
+    },
+    "USER": {
+      "PROFILE": "Profile",
+      "INVITATIONS": "Invitations",
+      "SETTINGS": "Settings"
+    },
+    "THEME": {
+      "LIGHT": "Light Mode",
+      "DARK": "Dark Mode"
+    }
+  }
+}

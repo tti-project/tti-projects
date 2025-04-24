@@ -1,21 +1,19 @@
-
-
 export const routesData = [
     {
       path: '/dashboard',
       icon: 'dashboard',
-      title: 'Dashboard'
+      title: 'DASHBOARD'
     },
     {
       path: '/workspaces',
       icon: 'workspaces',
-      title: 'Workspaces'
+      title: 'WORKSPACES'
     },
-  {
-    path: '/projects',
-    icon: 'folder',
-    title: 'Projects'
-  }
+    {
+      path: '/projects',
+      icon: 'folder',
+      title: 'PROJECTS'
+    }
 ]
 
 
