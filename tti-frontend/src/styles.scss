@@ -2,10 +2,8 @@
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 
-
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
 
 .mat-success {
   background-color: green;
@@ -49,6 +47,120 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .delete-button:hover {
   color: #8b0000;
+}
+
+// Dark mode class
+.dark-mode {
+  background-color: #303030;
+  color: #fff !important;
+
+  // Override Material colors for dark mode
+  .mat-toolbar {
+    background-color: #424242;
+    color: #fff;
+  }
+
+  .mat-card {
+    background-color: #424242;
+    color: #fff;
+  }
+
+  .mat-form-field-label {
+    color: #fff;
+  }
+
+  .mat-input-element {
+    color: #fff;
+  }
+  .content {
+    background-color: #303030 !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #fff !important;
+  }
+  .mat-mdc-card-outlined {
+    border-color: #fff !important;
+    background-color: #424242 !important;
+  }
+  .mat-mdc-card-outlined:hover {
+    border-color: #fff !important;
+    background-color: #424242 !important;
+  }
+  .mat-mdc-card-outlined:focus {
+    border-color: #fff !important;
+    background-color: #424242 !important;
+  }
+  .mat-mdc-card-outlined:active {
+    border-color: #fff !important;
+    background-color: #424242 !important;
+  }
+  .mat-mdc-card-title {
+    color: #fff !important;
+  }
+  .mat-mdc-card-subtitle {
+    color: #fff !important;
+  }
+  .mat-mdc-raised-button {
+    background-color: #837e7e !important;
+    color: #fff !important;
+  }
+
+  .mat-mdc-icon-button {
+    color: #fff !important;
+  }
+  .mat-mdc-icon-button:hover {
+    color: #fff !important;
+  }
+  .mat-icon {
+    color: #fff !important;
+  }
+
+  .mat-drawer {
+    background-color: #424242 !important;
+    color: #fff !important;
+  }
+  .mat-mdc-list-item {
+    color: #fff !important;
+  }
+  .mat-mdc-list-item:hover {
+    color: #fff !important;
+  }
+  .mat-drawer-container {
+    background-color: #424242 !important;
+  }
+  .mat-mdc-menu-content {
+    background-color: #424242 !important;
+  }
+  .mat-mdc-menu-item {
+    color: #fff !important;
+  }
+  .mdc-list-item__primary-text {
+    color: #fff !important;
+  }
+  .mdc-list-item__secondary-text {
+    color: #fff !important;
+  }
+  .login-container {
+    background-color: #424242 !important;
+  }
+  .login-container:hover {
+    background-color: #424242 !important;
+  }
+  .login-card {
+    background-color: #424242 !important;
+  }
+  .register-card {
+    background-color: #424242 !important;
+  }
+
+  p {
+    color: #fff !important;
+  }
+
+
+
+
 }
 
 

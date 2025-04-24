@@ -12,6 +12,7 @@ import { User } from './core/models/user.model';
 import { AuthService } from './core/services/auth.service';
 import { CommonModule } from '@angular/common';
 import { NotificationComponent } from './shared/components/notification/notification.component';
+import { ThemeService } from './core/services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -40,17 +41,17 @@ export class AppComponent {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    public themeService: ThemeService
   ) {
     this.user = this.authService.currentUserValue?.user || null;
     console.log(this.user);
     this.authService.currentUser$.subscribe((response) => {
       if (response) {
-        // Create a User object that matches the core User model
         this.user = {
           id: response.user.id,
           email: response.user.email,
-          name: response.user.name || '', // Assuming username can be used as name
+          name: response.user.name || '',
           role: response.user.role as 'admin' | 'member' | 'guest',
           createdAt: new Date(),
           updatedAt: new Date()
@@ -70,9 +71,12 @@ export class AppComponent {
     this.opened = false;
   }
 
-
   logout() {
     this.authService.logout();
     this.router.navigate(['/auth/login']);
+  }
+
+  toggleTheme(): void {
+    this.themeService.toggleTheme();
   }
 }
