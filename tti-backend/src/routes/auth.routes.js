@@ -124,19 +124,23 @@ router.post("/logoutAll", auth, async (req, res) => {
 // Refresh token
 router.post("/refresh", refreshTokenAttemptsMiddleware, async (req, res) => {
   try {
-    const { user, oldRefreshToken } = req.body;
+    const { refreshToken: oldRefreshToken } = req.body;
     if (!oldRefreshToken) {
       return res.status(400).send({ error: "Refresh token is required" });
     }
 
-    // Verify the old refresh token
-    const isValid = await user.verifyRefreshToken(oldRefreshToken);
-    if (!isValid) {
+    // Find user by refresh token
+    const user = await User.findOne({ refreshToken: oldRefreshToken });
+    if (!user) {
       return res.status(401).send({ error: "Invalid refresh token" });
     }
 
     // Generate new tokens
     const { accessToken, refreshToken } = await user.generateAuthToken();
+
+    // Update user's refresh token
+    user.refreshToken = refreshToken;
+    await user.save();
 
     // Reset refresh attempts
     resetRefreshAttempts(user._id);
