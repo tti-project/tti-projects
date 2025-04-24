@@ -2,17 +2,20 @@ export const routesData = [
     {
       path: '/dashboard',
       icon: 'dashboard',
-      title: 'DASHBOARD'
+      title: 'DASHBOARD',
+      roles: ['admin']
     },
     {
       path: '/workspaces',
       icon: 'workspaces',
-      title: 'WORKSPACES'
+      title: 'WORKSPACES',
+      roles: ['admin', 'member']
     },
     {
       path: '/projects',
       icon: 'folder',
-      title: 'PROJECTS'
+      title: 'PROJECTS',
+      roles: ['admin', 'member']
     }
 ]
 

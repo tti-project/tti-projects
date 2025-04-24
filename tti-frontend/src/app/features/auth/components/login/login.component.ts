@@ -13,16 +13,8 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  standalone: true,
-  imports: [
-    SharedModule,
-    ReactiveFormsModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    RouterLink
-  ],
+  standalone: false,
+
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })

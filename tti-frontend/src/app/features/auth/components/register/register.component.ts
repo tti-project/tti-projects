@@ -12,17 +12,8 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  standalone: true,
-  imports: [
-    SharedModule,
-    ReactiveFormsModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatProgressSpinnerModule,
-    RouterLink
-  ],
+  standalone: false,
+
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })

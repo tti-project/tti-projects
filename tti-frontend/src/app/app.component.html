@@ -8,11 +8,13 @@
     </div>
     <mat-nav-list>
       @for (route of routesData; track route.path) {
+      @if (route.roles.includes(user?.role || '')) {
       <a mat-list-item [routerLink]="route.path" (click)="navigateTo(route.path)"
         [routerLinkActive]="['mat-mdc-list-item-active']">
         <mat-icon matListItemIcon>{{route.icon}}</mat-icon>
         <span matListItemTitle>{{ 'APP.MENU.' + route.title | translate }}</span>
       </a>
+      }
       }
     </mat-nav-list>
   </mat-sidenav>
