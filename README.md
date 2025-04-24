@@ -113,6 +113,27 @@ The backend API provides the following endpoints:
   - POST `/api/auth/register` - Register a new user
   - POST `/api/auth/login` - Login and get JWT token
 
+  - POST `/api/auth/refresh-token` - Refresh JWT token
+  - POST `/api/auth/logout` - Logout and invalidate token
+
+## Authentication
+
+The application uses JWT (JSON Web Token) authentication. Here's how to use it:
+
+### User Credentials
+
+For testing purposes, you can use the following credentials:
+
+- **Admin User**:
+  - Email: admin@gmail.com
+  - Password: admin123
+
+### Token Management
+
+- Access tokens expire after a set period
+- The system automatically refreshes tokens in the background
+- Tokens are stored in localStorage for persistence between sessions
+
 - **Workspaces**
 
   - GET `/api/workspaces` - Get all workspaces

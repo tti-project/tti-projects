@@ -52,7 +52,7 @@ export class AuthService {
   }
 
   logout() {
-    this.http.post(`${this.apiUrl}/logout`, {}).subscribe();
+    // this.http.post(`${this.apiUrl}/logout`, {}).subscribe();
     this.stopRefreshTokenTimer();
     localStorage.removeItem('currentUser');
     localStorage.removeItem('refreshToken');
@@ -66,7 +66,7 @@ export class AuthService {
       return throwError(() => new Error('No refresh token available'));
     }
 
-    return this.http.post<{ user: User; token: string; refreshToken: string; accessToken: string }>(`${this.apiUrl}/refresh-token`, { refreshToken })
+    return this.http.post<{ user: User; token: string; refreshToken: string; accessToken: string }>(`${this.apiUrl}/refresh`, { user: this.currentUserValue?.user, refreshToken })
       .pipe(
         tap(response => {
           this.setSession(response);

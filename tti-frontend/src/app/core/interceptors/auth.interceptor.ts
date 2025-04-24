@@ -38,15 +38,15 @@ function handle401Error(
   authService: AuthService,
   router: Router
 ): Observable<HttpEvent<any>> {
-  return throwError(() => new Error('Failed to refresh token'));
-  // return authService.refreshToken().pipe(
-  //   switchMap(response => {
-  //     return next(addToken(request, response.token));
-  //   }),
-  //   catchError(error => {
-  //     authService.logout();
-  //     router.navigate(['/auth/login']);
-  //     return throwError(() => error);
-  //   })
-  // );
+  // return throwError(() => new Error('Failed to refresh token'));
+  return authService.refreshToken().pipe(
+    switchMap(response => {
+      return next(addToken(request, response.token));
+    }),
+    catchError(error => {
+      authService.logout();
+      router.navigate(['/auth/login']);
+      return throwError(() => error);
+    })
+  );
 }

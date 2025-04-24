@@ -8,7 +8,7 @@ export const routesData = [
     },
     {
       path: '/workspaces',
-      icon: 'dashboard',
+      icon: 'workspaces',
       title: 'Workspaces'
     },
   {

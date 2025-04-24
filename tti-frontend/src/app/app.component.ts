@@ -37,7 +37,7 @@ export class AppComponent {
   title = 'Task Tracking Interface';
   routesData = routesData;
   user: User | null = null;
-  opened = false;
+  opened = true;
 
   constructor(
     private authService: AuthService,
@@ -45,7 +45,6 @@ export class AppComponent {
     public themeService: ThemeService
   ) {
     this.user = this.authService.currentUserValue?.user || null;
-    console.log(this.user);
     this.authService.currentUser$.subscribe((response) => {
       if (response) {
         this.user = {

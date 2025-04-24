@@ -5,11 +5,11 @@ import { AuthService } from '../services/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class RoleGuard implements CanActivate {
+export class AdminGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(route: any): boolean {
-    const expectedRole = route.data['expectedRole'];
+    const expectedRole = route.data['admin'];
     const currentUser = this.authService.currentUserValue;
 
     if (!currentUser) {
@@ -18,7 +18,7 @@ export class RoleGuard implements CanActivate {
     }
 
     if (currentUser.user.role !== expectedRole) {
-      this.router.navigate(['/']);
+      // this.router.navigate(['/']);
       return false;
     }
 

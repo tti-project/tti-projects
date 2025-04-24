@@ -1,5 +1,12 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="sidenav">
+    <div class="logo d-flex align-items-center gap-2">
+      <img src="logo.png" alt="logo">
+      <div class="logo-text">
+        <span>TTI</span>
+
+      </div>
+    </div>
     <mat-nav-list>
       @for (route of routesData; track route.path) {
       <a mat-list-item [routerLink]="route.path" (click)="navigateTo(route.path)"
@@ -31,7 +38,11 @@
           </button>
           <mat-menu #userMenu="matMenu">
             <button mat-menu-item disabled>
-              <span>{{user?.name}}</span>
+              @if (user.name) {
+              <span>{{user.name}}</span>
+              } @else {
+              <span>{{user.email}}</span>
+              }
             </button>
             <button mat-menu-item (click)="navigateTo('/invitations')">
               <mat-icon>mail</mat-icon>

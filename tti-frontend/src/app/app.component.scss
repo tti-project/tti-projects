@@ -17,7 +17,7 @@
 }
 
 .sidenav {
-  width: 250px;
+  width: 170px;
 }
 
 .sidenav.collapsed {
@@ -60,4 +60,12 @@ mat-sidenav-content {
 
 .toolbar-spacer {
   flex: 1 1 auto;
+}
+
+.logo {
+  padding: 10px;
+  border-bottom: 1px solid #44474e;
+  img {
+    height: 42px;
+  }
 }
