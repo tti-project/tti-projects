@@ -183,16 +183,33 @@ The dashboard provides visual representations of:
    - Ensure MongoDB is running on your system
    - Verify the connection string in the `.env` file
 
-2. **JWT token issues**
+2. **Environment Variables**
+
+   Make sure your `.env` file is properly configured with the following variables:
+
+   ```
+   PORT=3000
+   MONGODB_URI=mongodb+srv://username:password@cluster.example.mongodb.net/db_name
+   NODE_ENV=development
+   JWT_REFRESH_SECRET=your_refresh_secret_key
+   JWT_SECRET=your_secret_key
+   EMAIL_USER=your_email@example.com
+   EMAIL_PASS=your_email_password
+   FRONTEND_URL=http://localhost:4200
+   ```
+
+   Note: Replace the placeholder values with your actual configuration. Never commit your real credentials to version control.
+
+3. **JWT token issues**
 
    - Check that the JWT_SECRET in the `.env` file is properly set
    - Ensure the token hasn't expired
 
-3. **CORS errors**
+4. **CORS errors**
 
    - The backend has CORS middleware enabled, but you may need to adjust settings if hosting on different domains
 
-4. **Chart data not loading**
+5. **Chart data not loading**
    - Check browser console for API errors
    - Verify that statistics routes are working properly
 
